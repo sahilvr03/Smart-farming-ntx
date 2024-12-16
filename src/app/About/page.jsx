@@ -34,7 +34,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className="font-sans">
+    <div className="font-sans mb-20  ">
       {/* Hero Section */}
       <section
         className="relative bg-cover bg-center h-[90vh] flex items-center justify-center"
