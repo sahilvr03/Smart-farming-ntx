@@ -103,17 +103,17 @@ const Navbar = () => {
         Home
       </Link>
       <Link
-        href="/Services"
-        onClick={toggleModal}
-        className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
-      >
-      <Link
         href="/About"
         onClick={toggleModal}
         className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
       >
         About
       </Link>
+      <Link
+        href="/Services"
+        onClick={toggleModal}
+        className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
+      >
         Services
       </Link>
       <Link
