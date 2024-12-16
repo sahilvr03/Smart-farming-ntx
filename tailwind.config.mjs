@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      transitionDuration: {
+        '2000': '1200ms', // Custom duration of 2000ms (2 seconds)
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

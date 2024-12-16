@@ -70,9 +70,13 @@ const Navbar = () => {
           <div className="sm:flex md:hidden">
             <button
               onClick={toggleModal}
-              className="p-2 rounded-md shadow-md border-y-2 border-white"
+              className={`p-2 rounded-md shadow-md border-y-2  ${
+                isScrolled ? "border-black" : "border-white"
+              }`}
             >
-              <span className="material-icons text-white">menu</span>
+              <span className={`material-icons  ${
+                isScrolled ? "text-black" : "text-white"
+              }`}>menu</span>
             </button>
           </div>
         </div>

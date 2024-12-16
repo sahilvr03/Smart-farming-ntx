@@ -74,14 +74,14 @@ const MapComponent = () => {
       </MapContainer>
 
       {/* Location Buttons */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+      <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-20 ">
         {officeLocations.map((location, index) => (
           <button
             key={index}
-            className="p-6 bg-gray-100 rounded-lg shadow cursor-pointer"
+            className="p-6 bg-sky-400 rounded-lg shadow cursor-pointer"
             onClick={() => handleLocationClick(location.coordinates)}
           >
-            <h3 className="text-2xl font-bold">{location.name}</h3>
+            <h3 className="text-sm sm:text-xs font-bold">{location.name}</h3>
           </button>
         ))}
       </div>
