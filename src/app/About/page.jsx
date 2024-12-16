@@ -49,7 +49,7 @@ export default function About() {
         </div>
       </section>
 
-      <section id="mission-section" className="bg-white py-16 px-4 md:px-12">
+      <section id="mission-section" className="bg-white py-16 px-4 md:px-12 overflow-hidden">
   <div className="flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto">
     {/* Image Div (moves from left to right on scroll) */}
     <div
