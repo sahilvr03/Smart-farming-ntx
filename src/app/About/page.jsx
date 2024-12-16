@@ -34,7 +34,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className="font-sans mb-20  ">
+    <div className="font-sans mb-20 lg:mb-0">
       {/* Hero Section */}
       <section
         className="relative bg-cover bg-center h-[90vh] flex items-center justify-center"
@@ -50,7 +50,7 @@ export default function About() {
       </section>
 
       <section id="mission-section" className="bg-white py-16 px-4 md:px-12 overflow-hidden">
-  <div className="flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto">
+  <div className="flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto bg-gray-100 rounded-lg border-2">
     {/* Image Div (moves from left to right on scroll) */}
     <div
       className={`md:w-1/2 transition-all duration-2000 ease-in-out ${
@@ -66,7 +66,7 @@ export default function About() {
 
     {/* Text Div (moves from right to left on scroll) */}
     <div
-      className={`md:w-1/2 md:pl-12 mb-8 md:mb-0 transition-all duration-2000 ease-in-out bg-white ${
+      className={`md:w-1/2 md:pl-12 mb-8 md:mb-0 transition-all duration-2000 ease-in-out  ${
         inView ? 'translate-x-0 opacity-100' : 'translate-x-[-50vw] opacity-0'
       }`}
     >
@@ -77,10 +77,10 @@ export default function About() {
     </div>
   </div>
 
-  <div className="flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto mt-7">
+  <div className="flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto mt-7 bg-gray-100  rounded-lg border-2">
     {/* Text Div (moves from left to right on scroll) */}
     <div
-      className={`md:w-1/2 md:pl-12 mb-8 md:mb-0 transition-all duration-2000 ease-in-out bg-white ${
+      className={`md:w-1/2 md:pl-12 mb-8 md:mb-0 transition-all duration-2000 ease-in-out  ${
         inView ? 'translate-x-0 opacity-100' : '-translate-x-[-50vw] opacity-0'
       }`}
     >
