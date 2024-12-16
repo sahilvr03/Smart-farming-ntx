@@ -4,7 +4,7 @@ const Hero = () => {
     return (
         <div
             className="relative h-screen bg-cover bg-center"
-            style={{ backgroundImage: "url('/your-background-image.jpg')" }}
+            style={{ backgroundImage: "url('/images/1.jpg')" }}
         >
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             <div className="relative flex flex-col items-center justify-center h-full text-center text-white">
@@ -13,7 +13,7 @@ const Hero = () => {
                 <button
                     className="px-6 py-3 text-lg font-semibold text-white bg-green-500 rounded-md hover:bg-green-600 transition"
                 >
-                    GET START
+                    GET STARTED
                 </button>
             </div>
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">

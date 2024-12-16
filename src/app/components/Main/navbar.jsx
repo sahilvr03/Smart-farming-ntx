@@ -1,55 +1,136 @@
-// components/Navbar.js
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Roboto } from "next/font/google"; // Optional font import
+
+const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Track scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.4) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Toggle modal function
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
   return (
-    <nav className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        {/* Logo */}
-        <div className="flex items-center">
-   
-          <span className="ml-2 font-bold text-xl text-gray-800">
-            SMART FARMING
-          </span>
-        </div>
+    <>
+      {/* Navbar */}
+      <nav
+        className={`bg-transparent shadow-md fixed w-full top-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white lg:hidden" : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <span
+              className={`ml-2 font-bold text-xl ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
+            >
+              SMART FARMING
+            </span>
+          </div>
 
-        {/* Navigation Links */}
-        <div className="hidden md:flex space-x-6">
-          <Link href="/home" className="text-gray-700 hover:text-gray-900">
-            Home
-          </Link>
-          <Link href="/services" className="text-gray-700 hover:text-gray-900">
-            Services
-          </Link>
-          <Link href="/crop-solutions" className="text-gray-700 hover:text-gray-900">
-            Crop Solutions
-          </Link>
-          <Link href="/about" className="text-gray-700 hover:text-gray-900">
-            About
-          </Link>
-          <Link href="/contact" className="text-gray-700 hover:text-gray-900">
-            Contact
-          </Link>
-        </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-6">
+            <Link href="/" className="text-black md:text-white hover:text-gray-300">
+              Home
+            </Link>
+            <Link href="/About" className="text-black md:text-white hover:text-gray-300">
+              About
+            </Link>
+            <Link href="/Services" className="text-black md:text-white hover:text-gray-300">
+              Services
+            </Link>
+            <Link href="/crop-solutions" className="text-black md:text-white hover:text-gray-300">
+              Crop Solutions
+            </Link>
+            <Link href="/contact" className="text-black md:text-white hover:text-gray-300">
+              Contact
+            </Link>
+          </div>
 
-        {/* Social Media Icons */}
-        <div className="flex items-center space-x-4">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-facebook text-blue-600 hover:text-blue-800 text-lg"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-instagram text-pink-600 hover:text-pink-800 text-lg"></i>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin text-blue-700 hover:text-blue-900 text-lg"></i>
-          </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github text-gray-800 hover:text-black text-lg"></i>
-          </a>
+          {/* Menu Icon for Mobile */}
+          <div className="sm:flex md:hidden">
+            <button
+              onClick={toggleModal}
+              className="p-2 rounded-md shadow-md border-y-2 border-white"
+            >
+              <span className="material-icons text-white">menu</span>
+            </button>
+          </div>
         </div>
-      </div>
+      </nav>
+
+      {/* Modal for Mobile Navigation */}
+      <div
+  className={ ` lg:hidden fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${
+    isModalOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+  }`}
+  onClick={toggleModal} // Close modal when clicking outside the content
+>
+  {/* Full-Width Navigation Links */}
+  <div
+    className="w-full bg-white shadow-md p-6 flex flex-col justify-center"
+    onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
+  >
+    <nav className="flex justify-around items-center">
+      <Link
+        href="/"
+        onClick={toggleModal}
+        className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
+      >
+        Home
+      </Link>
+      <Link
+        href="/Services"
+        onClick={toggleModal}
+        className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
+      >
+        Services
+      </Link>
+      <Link
+        href="/crop-solutions"
+        onClick={toggleModal}
+        className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
+      >
+        Crop Solutions
+      </Link>
+      <Link
+        href="/About"
+        onClick={toggleModal}
+        className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
+      >
+        About
+      </Link>
+      <Link
+        href="/contact"
+        onClick={toggleModal}
+        className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
+      >
+        Contact
+      </Link>
     </nav>
+  </div>
+</div>
+
+    </>
   );
 };
 
