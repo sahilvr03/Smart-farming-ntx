@@ -58,10 +58,10 @@ const Navbar = () => {
             <Link href="/Services" className="text-black md:text-white hover:text-gray-300">
               Services
             </Link>
-            <Link href="/crop-solutions" className="text-black md:text-white hover:text-gray-300">
+            <Link href="/" className="text-black md:text-white hover:text-gray-300">
               Crop Solutions
             </Link>
-            <Link href="/contact" className="text-black md:text-white hover:text-gray-300">
+            <Link href="/" className="text-black md:text-white hover:text-gray-300">
               Contact
             </Link>
           </div>
