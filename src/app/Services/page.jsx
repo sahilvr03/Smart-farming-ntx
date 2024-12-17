@@ -1,4 +1,5 @@
 import Image from 'next/image'; // For optimized image rendering in Next.js
+import Footer from '../components/Main/footer';
 
 const services = [
   {
@@ -143,6 +144,7 @@ export default function Services() {
 
     </div>
       </section>
+      <Footer/>
     </div>
   );
 }

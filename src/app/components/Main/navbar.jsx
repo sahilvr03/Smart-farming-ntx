@@ -32,7 +32,7 @@ const Navbar = () => {
     <>
       {/* Navbar */}
       <nav
-        className={`bg-transparent shadow-md fixed w-full top-0 z-50 transition-all duration-300 ${
+        className={`bg-transparent shadow-md fixed w-full top-0 z-40 transition-all duration-300 ${
           isScrolled ? "bg-white lg:hidden" : "bg-transparent"
         }`}
       >

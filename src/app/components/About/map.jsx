@@ -70,7 +70,7 @@ const MapComponent = () => {
   };
 
   return (
-    <div className="relative h-96 mb-[10vh] md:mb-0">
+    <div className="relative h-96 mb-[15vh] md:mb-0">
       {/* Map Container */}
       <MapContainer center={mapCenter} zoom={13} style={{ width: '100%', height: '80%' }}>
         {/* Geo OSM TileLayer */}
@@ -120,7 +120,7 @@ const MapComponent = () => {
         {officeLocations.map((location, index) => (
           <button
             key={index}
-            className="p-6 bg-sky-400 rounded-lg shadow cursor-pointer"
+            className="p-6 sm:p-2 bg-sky-400 rounded-lg shadow cursor-pointer"
             onClick={() => handleLocationClick(location.coordinates)}
           >
             <h3 className="text-sm sm:text-xs font-bold">{location.name}</h3>

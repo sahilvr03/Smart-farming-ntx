@@ -1,5 +1,6 @@
 import SubscriptionPlans from "../components/Home/plans";
 import ScopeOfOfferings from "../components/Home/scopes";
+import Footer from "../components/Main/footer";
 
 const { default: Hero } = require("../components/Home/hero");
 
@@ -88,6 +89,7 @@ const Landingpage = () => {
             <ScopeOfOfferings />
 
             <SubscriptionPlans />
+            <Footer/>
         </div>
     );
 };
