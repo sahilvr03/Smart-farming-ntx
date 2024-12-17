@@ -117,14 +117,14 @@ const Navbar = () => {
         Services
       </Link>
       <Link
-        href="/crop-solutions"
+        href="/"
         onClick={toggleModal}
         className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
       >
         Crop Solutions
       </Link>
       <Link
-        href="/contact"
+        href="/"
         onClick={toggleModal}
         className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
       >
