@@ -1,15 +1,18 @@
+"use client"; // Ensure this file uses the client-side rendering in Next.js
+
 import ChartCard from "../components/dashboard/chart";
 import Sidebar from "../components/dashboard/sidebar";
 
-
 const Dashboard = () => {
   return (
-    <div className="flex bg-white">
+    <div className="flex bg-gray-200">
       {/* Sidebar */}
-     <Sidebar/>
+      <div className="lg:w-[20vw]  w-full lg:flex sm:hidden">
+        <Sidebar />
+      </div>
 
       {/* Main Content */}
-      <div className="ml-64 p-6 w-full">
+      <div className="flex-1 p-6  sm:ml-0 sm:w-full transition-all ">
         <h1 className="text-3xl font-bold mb-4">Dashboard</h1>
         <div className="mb-4">
           <span className="text-gray-600">Cluster:</span>
@@ -23,8 +26,8 @@ const Dashboard = () => {
         </div>
 
         {/* Chart and Data Section */}
-        <div className="grid grid-cols-1 gap-4 bg-gray-100">
-          <ChartCard/>
+        <div className="grid grid-cols-1 gap-4">
+          <ChartCard />
         </div>
       </div>
     </div>

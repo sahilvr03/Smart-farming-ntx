@@ -25,7 +25,7 @@ const Landingpage = () => {
                     {/* Story Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {/* Card 1 */}
-                        <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                        <div className="bg-white  cursor-pointer rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
                             <img
                                 src="/images/2.jpg"
                                 alt="Grower Story 1"
@@ -45,7 +45,7 @@ const Landingpage = () => {
                         </div>
 
                         {/* Card 2 */}
-                        <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                        <div className="bg-white cursor-pointer rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
                             <img
                                 src="/images/19.jpg"
                                 alt="Grower Story 2"
@@ -65,7 +65,7 @@ const Landingpage = () => {
                         </div>
 
                         {/* Card 3 */}
-                        <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                        <div className="bg-white cursor-pointer rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
                             <img
                                 src="/images/18.jpg"
                                 alt="Grower Story 3"

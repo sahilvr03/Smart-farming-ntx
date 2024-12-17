@@ -30,7 +30,7 @@ export default function ScopeOfOfferings() {
           </h2>
   
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 cursor-pointer">
             {offerings.map((item) => (
               <div
                 key={item.id}
