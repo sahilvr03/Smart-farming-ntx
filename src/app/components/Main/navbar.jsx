@@ -32,8 +32,8 @@ const Navbar = () => {
     <>
       {/* Navbar */}
       <nav
-        className={`bg-opacity-10 bg-black shadow-md fixed w-full top-0 z-40 transition-all duration-300 ${
-          isScrolled ? "bg-white lg:hidden" : "bg-transparent"
+        className={`bg-opacity-70 bg-black shadow-md fixed w-full top-0 z-40 transition-all duration-300 ${
+          isScrolled ? "bg-white lg:hidden" : "bg-black"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">

@@ -13,7 +13,7 @@ const Hero = () => {
             ></video>
             
             {/* Overlay */}
-            <div className="absolute inset-0 "></div>
+            <div className="absolute inset-0 bg-black bg-opacity-20"></div>
             
             {/* Content */}
             <div className="relative flex flex-col items-center justify-center h-full text-center text-white">
