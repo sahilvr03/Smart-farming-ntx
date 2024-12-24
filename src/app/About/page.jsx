@@ -38,10 +38,17 @@ export default function About() {
     <div className="font-sans mb-20 lg:mb-0">
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-center h-[90vh] flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/1.jpg')" }}
+        className="relative bg-cover bg-center h-[100vh] flex items-center justify-center"
       >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+         <video
+    className="absolute inset-0 w-full h-full object-cover"
+    src="/videos/il.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+  ></video>
+        <div className="absolute inset-0"></div>
         <div className="relative z-10 text-white text-center px-6 md:px-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">About Us</h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto">

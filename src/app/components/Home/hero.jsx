@@ -2,11 +2,20 @@ import React from "react";
 
 const Hero = () => {
     return (
-        <div
-            className="relative h-screen bg-cover bg-center"
-            style={{ backgroundImage: "url('/images/1.jpg')" }}
-        >
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="relative h-screen">
+            {/* Video Background */}
+            <video
+                className="absolute inset-0 w-full h-full object-cover"
+                src="/videos/il.mp4" // Replace with your video file path
+                autoPlay
+                loop
+                muted
+            ></video>
+            
+            {/* Overlay */}
+            <div className="absolute inset-0 "></div>
+            
+            {/* Content */}
             <div className="relative flex flex-col items-center justify-center h-full text-center text-white">
                 <h1 className="text-5xl font-bold mb-4">SMART FARMING</h1>
                 <p className="text-xl mb-6">The Operating System for Precision Irrigation</p>
@@ -16,6 +25,8 @@ const Hero = () => {
                     GET STARTED
                 </button>
             </div>
+            
+            {/* Social Icons */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
                 <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                     <svg className="w-6 h-6 text-white hover:text-green-500 transition" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -29,7 +40,6 @@ const Hero = () => {
                         <path d="M18.406 5.594c-.796 0-1.441.646-1.441 1.441s.646 1.441 1.441 1.441 1.441-.646 1.441-1.441-.645-1.441-1.441-1.441z"/>
                     </svg>
                 </a>
-               
             </div>
         </div>
     );

@@ -32,7 +32,7 @@ const Navbar = () => {
     <>
       {/* Navbar */}
       <nav
-        className={`bg-transparent shadow-md fixed w-full top-0 z-40 transition-all duration-300 ${
+        className={`bg-opacity-10 bg-black shadow-md fixed w-full top-0 z-40 transition-all duration-300 ${
           isScrolled ? "bg-white lg:hidden" : "bg-transparent"
         }`}
       >
@@ -48,7 +48,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex  space-x-6">
             <Link href="/" className="text-black md:text-white hover:text-gray-300">
               Home
             </Link>
@@ -61,7 +61,7 @@ const Navbar = () => {
             <Link href="/" className="text-black md:text-white hover:text-gray-300">
               Crop Solutions
             </Link>
-            <Link href="/" className="text-black md:text-white hover:text-gray-300">
+            <Link href="/Contactus" className="text-black md:text-white hover:text-gray-300">
               Contact
             </Link>
           </div>
@@ -124,7 +124,7 @@ const Navbar = () => {
         Crop Solutions
       </Link>
       <Link
-        href="/"
+        href="/Contactus"
         onClick={toggleModal}
         className="text-gray-800 hover:text-blue-500 text-sm font-semibold"
       >

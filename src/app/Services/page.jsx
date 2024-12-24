@@ -33,12 +33,21 @@ export default function Services() {
     <div>
       {/* Hero Section */}
       <div
-        className="relative bg-cover bg-center h-96 lg:h-[90vh]"
-        style={{ backgroundImage: "url('/images/1.jpg')" }} // Replace with your image path
+        className="relative bg-cover bg-center h-96 lg:h-[100vh]"
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <h1 className="text-white text-4xl font-semibold text-center">Services</h1>
-        </div>
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                src="/videos/il.mp4" // Replace with your video file path
+                autoPlay
+                loop
+                muted
+            ></video>
+                 {/* Content */}
+                 <div className="relative flex flex-col items-center  justify-center h-full text-center text-white">
+                <h1 className="text-5xl font-bold mb-4">Services</h1>
+                <p className="text-xl mb-6">We provide Operating System for Precision Irrigation</p>
+              
+            </div>
       </div>
 
       {/* Services Section */}
