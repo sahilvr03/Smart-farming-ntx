@@ -37,15 +37,21 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <span
-              className={`ml-2 font-bold text-xl ${
-                isScrolled ? "text-black" : "text-white"
-              }`}
-            >
-              SMART FARMING
-            </span>
-          </div>
+        <div className="flex items-center space-x-1">
+          <span
+            className={`font-bold text-xl ${
+              isScrolled ? "text-black" : "text-white"
+            }`}
+          >
+            SMART FARMING
+          </span>
+          <img
+            src="/images/logo.png"
+            alt="Smart Farming Logo"
+            className="w-5 object-cover bg-transparent rounded-full"
+          />
+        </div>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex  space-x-6">
