@@ -8,21 +8,30 @@ export default function Home() {
   const [isSplash, setIsSplash] = useState(true);
 
   useEffect(() => {
+    // Disable scroll when splash screen is shown
+    document.body.style.overflow = "hidden";
+
     const timer = setTimeout(() => {
       setIsSplash(false); // Hide splash screen after 7 seconds
+      document.body.style.overflow = "auto"; // Re-enable scroll after splash screen disappears
     }, 7000); // 7 seconds
 
-    return () => clearTimeout(timer); // Clean up the timer
+    return () => {
+      clearTimeout(timer); // Clean up the timer
+      document.body.style.overflow = "auto"; // Ensure scroll is re-enabled if component unmounts
+    };
   }, []);
 
   return (
     <div className="relative">
-      {isSplash ? (
-        <div className="absolute inset-0 z-50">
+      {/* Landing page displayed in the background */}
+      <Landingpage />
+
+      {/* Splash screen overlay */}
+      {isSplash && (
+        <div className="absolute inset-0 bg-white z-50  justify-center items-center">
           <SplashScreen />
         </div>
-      ) : (
-        <Landingpage />
       )}
     </div>
   );
