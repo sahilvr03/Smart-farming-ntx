@@ -1,7 +1,7 @@
 "use client"
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-import Footer from '../components/Main/footer';
+
 
 const MapComponent = dynamic(() => import('../components/About/map'), { ssr: false });
 
@@ -135,7 +135,7 @@ export default function About() {
           <MapComponent />
         </div>
       </section>
-      <Footer/>
+   
     </div>
   );
 }

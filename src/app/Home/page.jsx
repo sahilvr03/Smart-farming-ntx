@@ -1,7 +1,7 @@
 import SubscriptionPlans from "../components/Home/plans";
 import ScopeOfOfferings from "../components/Home/scopes";
 import FeedbackPopup from "../components/Main/feedback";
-import Footer from "../components/Main/footer";
+
 
 
 const { default: Hero } = require("../components/Home/hero");
@@ -90,7 +90,7 @@ const Landingpage = () => {
       </section>
       <ScopeOfOfferings />
       <SubscriptionPlans />
-      <Footer />
+   
       <FeedbackPopup /> {/* Include the feedback popup */}
     </div>
   );
