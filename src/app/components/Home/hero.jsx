@@ -8,21 +8,33 @@ const Hero = () => {
   const [isViewed, setIsViewed] = useState(false);
 
   // Function to handle the button click
-  const handleButtonClick = () => {
+  const handleButtonClick = async () => {
     if (videoRef.current) {
-      // Toggle the video sound (mute/unmute)
-      if (isViewed) {
-        videoRef.current.muted = true; // Mute the video
-      } else {
-        videoRef.current.muted = false; // Unmute the video
-        videoRef.current.currentTime = 0; // Restart the video
-        videoRef.current.play(); // Play the video again
+      try {
+        // Request permission to access the audio (speaker)
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  
+        // If permission is granted, toggle the video sound (mute/unmute)
+        if (isViewed) {
+          videoRef.current.muted = true; // Mute the video
+        } else {
+          videoRef.current.muted = false; // Unmute the video
+          videoRef.current.currentTime = 0; // Restart the video
+          videoRef.current.play(); // Play the video again
+        }
+  
+        // Toggle the viewed state
+        setIsViewed(!isViewed);
+  
+        // Optionally, stop the stream to release the microphone/speaker
+        stream.getTracks().forEach(track => track.stop());
+      } catch (err) {
+        // Handle the case where the user denies permission
+        console.error('Permission denied for audio access', err);
       }
-
-      // Toggle the viewed state
-      setIsViewed(!isViewed);
     }
   };
+  
 
   return (
     <div className="relative h-screen">
