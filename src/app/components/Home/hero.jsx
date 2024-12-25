@@ -61,7 +61,7 @@ const Hero = () => {
           GET STARTED
         </button>
         {/* Experience the journey section */}
-        <div className="mt-8 flex items-center space-x-2">
+        <div className="mt-8 flex items-center space-x-2 md:hidden">
           <p className="text-sm">Experience the farming journey with us</p>
           <button
             onClick={handleButtonClick}
