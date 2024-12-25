@@ -10,7 +10,8 @@ const Hero = () => {
                 autoPlay
                 loop
                 muted
-            ></video>
+            ></video>import React from "react";
+
             
             {/* Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-20"></div>
