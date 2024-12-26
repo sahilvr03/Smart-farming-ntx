@@ -1,10 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ChartCard from "../components/dashboard/chart";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 100); // Add a slight delay for smoother animation
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="min-h-screen flex bg-gray-100 z-50 fixed w-[100vw]">
@@ -18,17 +24,30 @@ const Dashboard = () => {
           <h1 className="text-2xl font-bold">SmartFarming</h1>
           <p className="text-sm mt-1">Admin Dashboard</p>
         </div>
-        <nav className="mt-6 flex-1">
-          <ul>
-            <li className="p-4 hover:bg-green-700 cursor-pointer">Dashboard</li>
-            <li className="p-4 hover:bg-green-700 cursor-pointer">Analytics</li>
-            <li className="p-4 hover:bg-green-700 cursor-pointer">Users</li>
-            <li className="p-4 hover:bg-green-700 cursor-pointer">Fields</li>
-            <li className="p-4 hover:bg-green-700 cursor-pointer">Settings</li>
-          </ul>
+        <nav className="mt-6 flex-1 flex flex-col items-center space-y-4">
+          {["Dashboard", "Analytics", "Users", "Fields", "Settings"].map(
+            (item, index) => (
+              <button
+                key={index}
+                className={`p-2 w-40 bg-green-500 hover:bg-green-400 text-white rounded-full shadow-md transition-all duration-500 ease-in-out transform ${
+                  isLoaded
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                {item}
+              </button>
+            )
+          )}
         </nav>
-        <div className="p-4">
-          <button className="w-full bg-green-500 hover:bg-green-400 text-white py-2 rounded">
+        <div
+          className={`p-4 flex justify-center transform transition-all duration-500 ease-in-out ${
+            isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+          style={{ transitionDelay: "500ms" }}
+        >
+          <button className="w-40 bg-red-500 hover:bg-red-400 text-white py-2 rounded-full shadow-md">
             Logout
           </button>
         </div>
@@ -101,8 +120,11 @@ const Dashboard = () => {
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Analytics Overview
           </h3>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <ChartCard />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            <ChartCard title="Fields Growth" chartType="line" />
+            <ChartCard title="Water Usage" chartType="bar" />
+            <ChartCard title="Sensor Status" chartType="pie" />
+            <ChartCard title="Yield Analysis" chartType="area" />
           </div>
         </div>
       </main>

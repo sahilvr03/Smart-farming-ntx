@@ -1,55 +1,58 @@
-"use client"
-// components/ChartCard.js
-import { VictoryChart, VictoryLine, VictoryAxis, VictoryTooltip, VictoryTheme } from 'victory';
+"use client";
 
-const data = [
-  { name: "13/08", value: 10 },
-  { name: "14/08", value: 100 },
-  { name: "15/08", value: 40 },
-  { name: "16/08", value: 30 },
-  { name: "17/08", value: 90 },
-  { name: "18/08", value: 10 },
-];
+import React, { useState } from "react";
+import ReactApexChart from "react-apexcharts";
 
-const ChartCard = () => {
+const ChartCard = ({ title, chartType }) => {
+  const [chartData, setChartData] = useState(() => {
+    // Generate chart data based on chart type
+    switch (chartType) {
+      case "line":
+        return {
+          options: {
+            chart: { id: "line-chart" },
+            xaxis: { categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"] },
+          },
+          series: [{ name: "Fields", data: [30, 40, 35, 50, 49, 60] }],
+        };
+      case "bar":
+        return {
+          options: {
+            chart: { id: "bar-chart" },
+            xaxis: { categories: ["Field A", "Field B", "Field C", "Field D"] },
+          },
+          series: [{ name: "Water Usage", data: [400, 300, 200, 500] }],
+        };
+      case "pie":
+        return {
+          options: { labels: ["Active", "Inactive"] },
+          series: [85, 15],
+        };
+      case "area":
+        return {
+          options: {
+            chart: { id: "area-chart" },
+            xaxis: { categories: ["Week 1", "Week 2", "Week 3", "Week 4"] },
+          },
+          series: [{ name: "Yield", data: [50, 70, 65, 90] }],
+        };
+      default:
+        return {
+          options: {},
+          series: [],
+        };
+    }
+  });
+
   return (
-    <div className="p-6 bg-white shadow rounded-md">
-      {/* Top Section */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-lg font-bold">device-004</h2>
-          <p className="text-gray-500 text-sm">ID: 047051a3</p>
-        </div>
-        <select className="border p-2 rounded">
-          <option>Daily</option>
-          <option>Weekly</option>
-          <option>Monthly</option>
-        </select>
-      </div>
-
-      {/* Chart Section */}
-      <div className="mt-4">
-        <VictoryChart theme={VictoryTheme.material} width={600} height={250}>
-          <VictoryLine
-            data={data}
-            x="name"
-            y="value"
-            style={{
-              data: { stroke: "#8884d8", strokeWidth: 2 },
-              parent: { border: "1px solid #ccc" }
-            }}
-          />
-          <VictoryAxis
-            label="Date"
-            tickFormat={data.map(item => item.name)}  // Set custom tick format to match the dates
-          />
-          <VictoryAxis dependentAxis label="Value" />
-          <VictoryTooltip
-            flyoutStyle={{ fill: "#fff", stroke: "#ccc" }}
-            style={{ fontSize: 10 }}
-          />
-        </VictoryChart>
-      </div>
+    <div className="p-6 bg-white rounded-lg shadow-md">
+      <h4 className="text-lg font-semibold mb-4 text-gray-800">{title}</h4>
+      <ReactApexChart
+        options={chartData.options}
+        series={chartData.series}
+        type={chartType}
+        height={300}
+      />
     </div>
   );
 };
