@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
-import ReactApexChart from "react-apexcharts";
+import React, { useMemo } from "react";
+import dynamic from "next/dynamic";
 
-const ChartCard = ({ title, chartType }) => {
-  const [chartData, setChartData] = useState(() => {
-    // Generate chart data based on chart type
+// Dynamically import ReactApexChart to avoid SSR issues
+const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
+
+const ChartCard = ({ title = "Chart", chartType = "line" }) => {
+  // Memoized chart data
+  const chartData = useMemo(() => {
     switch (chartType) {
       case "line":
         return {
@@ -37,22 +40,30 @@ const ChartCard = ({ title, chartType }) => {
           series: [{ name: "Yield", data: [50, 70, 65, 90] }],
         };
       default:
+        console.warn(`Unsupported chart type: ${chartType}`);
         return {
-          options: {},
+          options: {
+            chart: { id: "default-chart" },
+            xaxis: { categories: [] },
+          },
           series: [],
         };
     }
-  });
+  }, [chartType]);
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
       <h4 className="text-lg font-semibold mb-4 text-gray-800">{title}</h4>
-      <ReactApexChart
-        options={chartData.options}
-        series={chartData.series}
-        type={chartType}
-        height={300}
-      />
+      {chartData.series.length > 0 ? (
+        <ReactApexChart
+          options={chartData.options}
+          series={chartData.series}
+          type={chartType}
+          height={300}
+        />
+      ) : (
+        <p className="text-gray-500">No data available for the selected chart type.</p>
+      )}
     </div>
   );
 };
