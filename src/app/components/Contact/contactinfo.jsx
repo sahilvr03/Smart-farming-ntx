@@ -2,7 +2,7 @@ import { Clock, MapPin, Phone, Mail } from "lucide-react";
 
 export default function ContactInfo() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-10 w-full">
       <div className="bg-white rounded-3xl p-8 shadow-xl cursor-pointer hover:shadow-2xl transition-shadow duration-300 backdrop-blur-sm bg-opacity-90 border border-green-100 group">
         <div className="flex flex-col items-center text-center space-y-4">
           <div className="p-4 bg-green-50 rounded-full group-hover:scale-110 transition-transform duration-300">
