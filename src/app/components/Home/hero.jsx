@@ -19,12 +19,12 @@ const Hero = () => {
             
             {/* Content */}
             <div className="relative flex flex-col items-center justify-center h-full text-center text-white">
-                <h1 className="text-5xl font-bold mb-4">SMART FARMING</h1>
+                <h1 className="text-5xl font-bold mb-4  cursor-pointer"> SMART FARMING </h1>
                 <p className="text-xl mb-6">The Operating System for Precision Irrigation</p>
                 <button
                     className="px-6 py-3 text-lg font-semibold text-white bg-green-500 rounded-md hover:bg-green-600 transition"
                 >
-                    GET STARTED
+                    GET STARTED 
                 </button>
             </div>
             

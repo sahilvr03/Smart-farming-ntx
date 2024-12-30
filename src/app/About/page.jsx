@@ -57,61 +57,75 @@ export default function About() {
         </div>
       </section>
 
-      <section id="mission-section" className="bg-white py-16 px-4 md:px-12 overflow-hidden">
-  <div className="flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto bg-gray-100 rounded-lg border-2">
-    {/* Image Div (moves from left to right on scroll) */}
+      <section
+  id="mission-section"
+  className="bg-gradient-to-b from-green-50 to-white py-16 px-4 md:px-12 overflow-hidden"
+>
+  {/* Mission Section 1 */}
+  <div className="flex cursor-pointer flex-col-reverse md:flex-row-reverse items-center max-w-6xl mx-auto mt-10 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+    {/* Text Div */}
     <div
-      className={`md:w-1/2 transition-all duration-2000 ease-in-out ${
-        inView ? 'translate-x-0 opacity-100' : '-translate-x-[-50vw] opacity-0'
+      className={`md:w-1/2 md:pl-12 p-6 md:p-12 transition-transform duration-1000 ease-out ${
+        inView ? 'translate-x-0 opacity-100' : '-translate-x-[50vw] opacity-0'
+      }`}
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-4">
+        Empowering Farmers
+      </h2>
+      <p className="text-gray-600 text-lg leading-relaxed">
+        Our mission is to revolutionize farming by providing farmers with
+        cutting-edge technology, accurate analytics, and actionable insights to
+        maximize their yields and efficiency while promoting sustainability.
+      </p>
+    </div>
+
+    {/* Image Div */}
+    <div
+      className={`md:w-1/2 transition-transform duration-1000 ease-out ${
+        inView ? 'translate-x-0 opacity-100' : 'translate-x-[50vw] opacity-0'
       }`}
     >
       <img
         src="/images/2.jpg"
-        alt="Farming"
-        className="rounded-lg shadow-lg w-full"
+        alt="Sustainability"
+        className="rounded-lg shadow-md w-full transform hover:scale-105 transition-transform duration-500"
       />
-    </div>
-
-    {/* Text Div (moves from right to left on scroll) */}
-    <div
-      className={`md:w-1/2 md:pl-12 mb-8 md:mb-0 transition-all duration-2000 ease-in-out  ${
-        inView ? 'translate-x-0 opacity-100' : 'translate-x-[-50vw] opacity-0'
-      }`}
-    >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Mission Statement</h2>
-      <p className="text-gray-700 text-lg leading-relaxed">
-        Our mission is to revolutionize farming by providing farmers with cutting-edge technology, accurate analytics, and actionable insights to maximize their yields and efficiency while promoting sustainability.
-      </p>
     </div>
   </div>
 
-  <div className="flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto mt-7 bg-gray-100  rounded-lg border-2">
-    {/* Text Div (moves from left to right on scroll) */}
+  {/* Mission Section 2 */}
+  <div className="flex flex-col-reverse cursor-pointer md:flex-row-reverse items-center max-w-6xl mx-auto mt-10 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+    {/* Text Div */}
     <div
-      className={`md:w-1/2 md:pl-12 mb-8 md:mb-0 transition-all duration-2000 ease-in-out  ${
-        inView ? 'translate-x-0 opacity-100' : '-translate-x-[-50vw] opacity-0'
+      className={`md:w-1/2 md:pl-12 p-6 md:p-12 transition-transform duration-1000 ease-out ${
+        inView ? 'translate-x-0 opacity-100' : '-translate-x-[50vw] opacity-0'
       }`}
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Mission Statement</h2>
-      <p className="text-gray-700 text-lg leading-relaxed">
-        Our mission is to revolutionize farming by providing farmers with cutting-edge technology, accurate analytics, and actionable insights to maximize their yields and efficiency while promoting sustainability.
+      <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-4">
+        Sustainable Future
+      </h2>
+      <p className="text-gray-600 text-lg leading-relaxed">
+        Our commitment is to foster sustainability in agriculture by blending
+        traditional farming practices with modern innovations. Together, we can
+        build a greener, healthier planet for future generations.
       </p>
     </div>
 
-    {/* Image Div (moves from right to left on scroll) */}
+    {/* Image Div */}
     <div
-      className={`md:w-1/2 transition-all duration-2000 ease-in-out ${
-        inView ? 'translate-x-0 opacity-100' : 'translate-x-[-50vw] opacity-0'
+      className={`md:w-1/2 transition-transform duration-1000 ease-out ${
+        inView ? 'translate-x-0 opacity-100' : 'translate-x-[50vw] opacity-0'
       }`}
     >
       <img
         src="/images/2.jpg"
-        alt="Farming"
-        className="rounded-lg shadow-lg w-full"
+        alt="Sustainability"
+        className="rounded-lg shadow-md w-full transform hover:scale-105 transition-transform duration-500"
       />
     </div>
   </div>
 </section>
+
 
 
 
