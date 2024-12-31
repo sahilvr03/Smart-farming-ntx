@@ -7,11 +7,11 @@ const Hero = () => {
             {/* Video Background */}
             <video
                 className="absolute inset-0 w-full h-full object-cover"
-                src="/videos/il.mp4" // Replace with your video file path
+                src="/videos/new2.mp4" // Replace with your video file path
                 autoPlay
                 loop
                 muted
-            ></video>import React from "react";
+            ></video>
 
             
             {/* Overlay */}

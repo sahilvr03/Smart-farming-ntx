@@ -42,7 +42,7 @@ export default function About() {
       >
          <video
     className="absolute inset-0 w-full h-full object-cover"
-    src="/videos/il.mp4"
+    src="/videos/new.mp4"
     autoPlay
     loop
     muted
