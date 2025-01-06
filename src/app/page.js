@@ -14,7 +14,7 @@ export default function Home() {
     const timer = setTimeout(() => {
       setIsSplash(false); // Hide splash screen after 7 seconds
       document.body.style.overflow = "auto"; // Re-enable scroll after splash screen disappears
-    }, 7000); // 7 seconds
+    }, 5000); // 7 seconds
 
     return () => {
       clearTimeout(timer); // Clean up the timer
