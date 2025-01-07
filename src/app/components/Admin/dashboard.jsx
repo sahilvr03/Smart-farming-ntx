@@ -32,7 +32,7 @@ const MainContent = ({ setIsSidebarOpen }) => {
           <h2 className="text-xl font-semibold text-gray-800">Dashboard</h2>
         </div>
         <div className="flex items-center space-x-4">
-          <button className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600">
+          <button className="bg-green-500 text-sm text-white px-4 py-2 rounded-full hover:bg-green-600">
             Add Field
           </button>
           <div className="h-10 w-10 bg-gray-300 rounded-full flex items-center justify-center">
