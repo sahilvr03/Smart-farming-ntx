@@ -1,7 +1,9 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import Lottie from "react-lottie";
+
+// Dynamically import Lottie with SSR disabled
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 // Importing Lottie animation JSON files
 import SoilMoistureAnim from "@/app/animations/soilmoisture.json";
@@ -12,39 +14,47 @@ import SoilTemperatureAnim from "@/app/animations/temperature.json";
 // Dynamically import the Chart component with SSR disabled
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const sensorData = {
-  soilMoisture: {
-    title: "Soil Moisture",
-    info: "Soil moisture is a critical factor affecting crop growth and soil health.",
-    data: [30, 40, 35, 50, 49, 60],
-    color: "#1E90FF",
-    animation: SoilMoistureAnim, // Add corresponding animation
-  },
-  soilConductivity: {
-    title: "Soil Conductivity",
-    info: "Soil conductivity indicates the ability of soil to conduct electrical current.",
-    data: [20, 30, 40, 25, 35, 50],
-    color: "#FF6347",
-    animation: SoilConductivityAnim, // Add corresponding animation
-  },
-  batteryVoltage: {
-    title: "Battery Voltage",
-    info: "Battery voltage indicates the power status of connected sensors.",
-    data: [12, 13, 14, 15, 14, 13],
-    color: "#32CD32",
-    animation: BatteryVoltageAnim, // Add corresponding animation
-  },
-  soilTemperature: {
-    title: "Soil Temperature",
-    info: "Soil temperature affects seed germination and plant growth.",
-    data: [15, 16, 17, 18, 19, 20],
-    color: "#FFD700",
-    animation: SoilTemperatureAnim, // Add corresponding animation
-  },
-};
-
 const Analytics = () => {
   const [activeSensor, setActiveSensor] = useState("soilMoisture");
+  const [isClient, setIsClient] = useState(false); // State to track if we are on the client side
+
+  // Set state to true once the component is mounted on the client
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null; // Render nothing during SSR
+
+  const sensorData = {
+    soilMoisture: {
+      title: "Soil Moisture",
+      info: "Soil moisture is a critical factor affecting crop growth and soil health.",
+      data: [30, 40, 35, 50, 49, 60],
+      color: "#1E90FF",
+      animation: SoilMoistureAnim,
+    },
+    soilConductivity: {
+      title: "Soil Conductivity",
+      info: "Soil conductivity indicates the ability of soil to conduct electrical current.",
+      data: [20, 30, 40, 25, 35, 50],
+      color: "#FF6347",
+      animation: SoilConductivityAnim,
+    },
+    batteryVoltage: {
+      title: "Battery Voltage",
+      info: "Battery voltage indicates the power status of connected sensors.",
+      data: [12, 13, 14, 15, 14, 13],
+      color: "#32CD32",
+      animation: BatteryVoltageAnim,
+    },
+    soilTemperature: {
+      title: "Soil Temperature",
+      info: "Soil temperature affects seed germination and plant growth.",
+      data: [15, 16, 17, 18, 19, 20],
+      color: "#FFD700",
+      animation: SoilTemperatureAnim,
+    },
+  };
 
   const chartOptions = {
     chart: {
@@ -133,7 +143,6 @@ const Analytics = () => {
               height={350}
             />
           </div>
-
         </div>
       </div>
     </div>
